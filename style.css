@@ -22,6 +22,16 @@ h1 {
     margin: 5%;
 }
 
+input[type="text"] {
+    font-family: 'Shadows Into Light', cursive, sans-serif;
+    font-size: 85%;
+}
+
+::placeholder {
+    font-family: 'Shadows Into Light', cursive, sans-serif;
+    font-size: 120%;
+}
+
 .book-para {
     text-align: center;
     padding: 1%;
@@ -50,20 +60,10 @@ button {
     box-shadow: 5px 29px 7px rgba(170,170,170,0.69);
 }
 
-::placeholder {
-    font-family: 'Shadows Into Light', cursive, sans-serif;
-    font-size: 120%;
-}
-
 .delete-button {
     background-color: #ed4242;
 }
 
 .toggle-button {
     background-color: #ccc85e;
-}
-
-input[type="text"] {
-    font-family: 'Shadows Into Light', cursive, sans-serif;
-    font-size: 85%;
 }
