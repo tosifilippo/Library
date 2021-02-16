@@ -3,7 +3,7 @@ const userAuthor = document.getElementById("author");
 const userPages = document.getElementById("pages");
 const userRead = document.getElementsByName("read/not read");
 
-let myLibrary = [];
+let myLibrary = []; 
 
 function Book (title, author, pages, read) {
     this.title = title;
@@ -11,22 +11,30 @@ function Book (title, author, pages, read) {
     this.pages = pages;
     this.read = read; 
     this.info = function() {
-        return this.title + " di " + this.author + ". " + this.pages + ' pagine, ' + this.read + '.';
+        return this.title + " by " + this.author + ". " + this.pages + ' pages, ' + this.read + '.';
     }; 
 };
 
 function addBookToLibrary() {
     if (userRead[0].checked) {
-        userRead.value = "già letto";
+        userRead.value = "already read";
     } else {
-        userRead.value = "non ancora letto";
+        userRead.value = "not read yet";
     };
     myLibrary.push(new Book(userTitle.value, userAuthor.value, userPages.value, userRead.value));
     saveLocal();
-    let para = document.createElement("p");   
-    para.innerHTML = myLibrary[myLibrary.length - 1].info();                  
+    userTitle.value = "";
+    userAuthor.value = "";
+    userPages.value = "";
+    userRead[0].checked = false;
+    userRead[1].checked = false;
+    let para = document.createElement("p");
+    para.classList.add("book-para");
+    para.innerHTML = myLibrary[myLibrary.length - 1].info();                
     document.body.appendChild(para);
+    para.appendChild(document.createElement("br"));
     let deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
     deleteButton.setAttribute('data-index', myLibrary.length - 1);
     deleteButton.innerText = "Delete Book";
     deleteButton.onclick = function removeBookFromLibrary() {
@@ -36,20 +44,23 @@ function addBookToLibrary() {
     };    
     para.appendChild(deleteButton);
     let toggleReadButton = document.createElement("button");
+    toggleReadButton.classList.add("toggle-button");
     toggleReadButton.setAttribute('data-index', myLibrary.length - 1);
-    toggleReadButton.innerText = "Letto/Non letto";
+    toggleReadButton.innerText = "Read/Not read";
     toggleReadButton.onclick = function toggleRead() {
-        if (myLibrary[toggleReadButton.dataset.index].read == "già letto") {
-            myLibrary[toggleReadButton.dataset.index].read = "non ancora letto";
+        if (myLibrary[toggleReadButton.dataset.index].read == "already read") {
+            myLibrary[toggleReadButton.dataset.index].read = "not read yet";
             saveLocal();
             para.innerText = myLibrary[toggleReadButton.dataset.index].info();
-        } else if (myLibrary[toggleReadButton.dataset.index].read == "non ancora letto") {
-            myLibrary[toggleReadButton.dataset.index].read = "già letto";
+            para.appendChild(document.createElement("br"));
+        } else if (myLibrary[toggleReadButton.dataset.index].read == "not read yet") {
+            myLibrary[toggleReadButton.dataset.index].read = "already read";
             saveLocal();
             para.innerText = myLibrary[toggleReadButton.dataset.index].info();
+            para.appendChild(document.createElement("br"));
         };
-        para.appendChild(toggleReadButton);
         para.appendChild(deleteButton);
+        para.appendChild(toggleReadButton);
     };
     para.appendChild(toggleReadButton);
 };
@@ -72,10 +83,13 @@ restoreLocal();
 
 myLibrary.forEach(element => {
     if (element != null) {
-    let para = document.createElement("p");   
+    let para = document.createElement("p"); 
+    para.classList.add("book-para");
     para.innerHTML = element.info();                  
     document.body.appendChild(para);
+    para.appendChild(document.createElement("br"));
     let deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
     deleteButton.setAttribute('data-index', myLibrary.indexOf(element));
     deleteButton.innerText = "Delete Book";
     deleteButton.onclick = function removeBookFromLibrary() {
@@ -85,20 +99,23 @@ myLibrary.forEach(element => {
     };    
     para.appendChild(deleteButton);
     let toggleReadButton = document.createElement("button");
+    toggleReadButton.classList.add("toggle-button");
     toggleReadButton.setAttribute('data-index', myLibrary.indexOf(element));
-    toggleReadButton.innerText = "Letto/Non letto";
+    toggleReadButton.innerText = "Read/Not read";
     toggleReadButton.onclick = function toggleRead() {
-        if (myLibrary[toggleReadButton.dataset.index].read == "già letto") {
-            myLibrary[toggleReadButton.dataset.index].read = "non ancora letto";
+        if (myLibrary[toggleReadButton.dataset.index].read == "already read") {
+            myLibrary[toggleReadButton.dataset.index].read = "not read yet";
             saveLocal();
             para.innerText = myLibrary[toggleReadButton.dataset.index].info();
-        } else if (myLibrary[toggleReadButton.dataset.index].read == "non ancora letto") {
-            myLibrary[toggleReadButton.dataset.index].read = "già letto";
+            para.appendChild(document.createElement("br"));
+        } else if (myLibrary[toggleReadButton.dataset.index].read == "not read yet") {
+            myLibrary[toggleReadButton.dataset.index].read = "already read";
             saveLocal();
             para.innerText = myLibrary[toggleReadButton.dataset.index].info();
+            para.appendChild(document.createElement("br"));
         };
-        para.appendChild(toggleReadButton);
         para.appendChild(deleteButton);
+        para.appendChild(toggleReadButton);
     };
     para.appendChild(toggleReadButton);
     };

@@ -3,25 +3,36 @@
 <head>
     <title>Book Library</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 </head>
 <body>
+    <h1>Your Book Library</h1>
+    <p id="instructions">Insert your books details in the form below and click "NEW BOOK".
+        <br>
+        The library is only stored on your machine and can't be accessed from a different one.
+        <br>
+        Tip: if you add a lot of books, use CTRL+F to search for a title or an author!
+    </p>
+    <div id="user-input">
     <label for="title"> Title
-        <input type="text" id="title">
+        <input type="text" id="title" placeholder="title">
     </label>
     <label for="author"> Author 
-        <input type="text" id="author">
+        <input type="text" id="author" placeholder="author">
     </label>
+    <br>
     <label for="pages">Pages
-        <input type="text" id="pages">
+        <input type="text" id="pages" placeholder="pages">
     </label>
     <label for="read">Read
         <input type="radio" name="read/not read" value="read" id="read">
     </label>
     <label for="not read">Not Read
-        <input type="radio"name="read/not read" value="note read" id="not read">
+        <input type="radio"name="read/not read" value="not read" id="not read">
     </label>
+    <br>
     <button id="new-book" onclick="addBookToLibrary()">NEW BOOK</button>
-    <div id="books-container"></div>
+    </div>
 </body>
 <script src="script.js"></script>
 </html>

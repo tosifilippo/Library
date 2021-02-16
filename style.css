@@ -1,0 +1,69 @@
+html {
+    font-family: 'Shadows Into Light', cursive, sans-serif;
+    font-size: 150%;
+    background-color: azure;
+}
+
+h1 {
+    text-align: center;
+    font-size: 350%;
+    margin-bottom: 2%;
+}
+
+#instructions {
+    text-align: center;
+    margin: 0;
+    font-family: 'Permanent Marker', cursive, sans-serif;
+    font-size: 75%;
+}
+
+#user-input {
+    text-align: center;
+    margin: 5%;
+}
+
+.book-para {
+    text-align: center;
+    padding: 1%;
+    border: 2px solid;
+    border-radius: 25%;
+    margin-right: 10%;
+    margin-left: 10%;
+    box-shadow: 5px 5px 29px 7px rgba(0,0,0,0.69);
+}
+
+button {
+    margin: 1%;
+    font-family: 'Permanent Marker', cursive, sans-serif;
+    font-size: 70%;
+}
+
+#new-book {
+    width: 25%;
+    margin: 5%;
+    margin-bottom: 0%;
+    font-size: xx-large;
+    background-color: #8bd479;
+}
+
+#new-book:hover {
+    box-shadow: 5px 29px 7px rgba(170,170,170,0.69);
+}
+
+::placeholder {
+    font-family: 'Shadows Into Light', cursive, sans-serif;
+    font-size: 120%;
+}
+
+.delete-button {
+    background-color: #ed4242;
+}
+
+.toggle-button {
+    background-color: #ccc85e;
+}
+
+input[type="text"] {
+    font-family: 'Shadows Into Light', cursive, sans-serif;
+    font-size: 85%;
+}
