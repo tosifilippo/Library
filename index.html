@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <label for="title"> Title
+        <input type="text" id="title">
+    </label>
+    <label for="author"> Author 
+        <input type="text" id="author">
+    </label>
+    <label for="pages">Pages
+        <input type="text" id="pages">
+    </label>
+    <label for="read">Read
+        <input type="radio" name="read/not read" value="read" id="read">
+    </label>
+    <label for="not read">Not Read
+        <input type="radio"name="read/not read" value="note read" id="not read">
+    </label>
+    <button id="new-book" onclick="addBookToLibrary()">NEW BOOK</button>
+    <div id="books-container"></div>
+</body>
+<script src="script.js"></script>
+</html>
