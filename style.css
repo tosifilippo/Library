@@ -27,6 +27,11 @@ input[type="text"] {
     font-size: 85%;
 }
 
+input[type="number"] {
+    font-family: 'Shadows Into Light', cursive, sans-serif;
+    font-size: 85%;
+}
+
 ::placeholder {
     font-family: 'Shadows Into Light', cursive, sans-serif;
     font-size: 120%;
@@ -58,6 +63,14 @@ button {
 
 #new-book:hover {
     box-shadow: 5px 29px 7px rgba(170,170,170,0.69);
+}
+
+#new-book:disabled {
+    background-color: rgba(170,170,170,0.69);
+}
+
+#new-book:disabled:hover {
+    box-shadow: none;
 }
 
 .delete-button {

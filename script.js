@@ -18,7 +18,19 @@ function Book (title, author, pages, read) {
     }; 
 };
 
+// keeps new book button disabled until all fields have input
+function checkform() {
+    let f = document.forms["text-input"].elements;
+    let cansubmit = true;
+    for (let i = 0; i < f.length; i++) {
+        if (((f[i].value.length == 0) || ((!userRead[0].checked) && (!userRead[1].checked)))) cansubmit = false;
+    };
+    document.getElementById('new-book').disabled = !cansubmit;
+};
+
 function addBookToLibrary() {
+    //disables the button
+    document.getElementById('new-book').disabled = "disabled";
     // sets Book read value depending on radio button checked
     if (userRead[0].checked) {
         userRead.value = "already read";
