@@ -8,7 +8,8 @@ const userRead = document.getElementsByName("read/not read");
 let myLibrary = []; 
 
 // Book constructor
-function Book (title, author, pages, read) {
+let Book = class {
+    constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -16,6 +17,7 @@ function Book (title, author, pages, read) {
     this.info = function() {
         return this.title + " by " + this.author + ". " + this.pages + ' pages, ' + this.read + '.';
     }; 
+    };
 };
 
 // keeps new book button disabled until all fields have input
